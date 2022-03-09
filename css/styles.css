@@ -187,23 +187,50 @@ select::-ms-expand {
   display: inline-block;
 }
 .card__inner {
+  position: relative;
   display: inline-block;
   max-width: 335px;
   max-width: 20.9375rem;
   width: 100%;
+  padding: 15px;
+  padding: 0.9375rem;
 }
 .card__inner:before {
   content: "";
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   width: 0;
   height: 0;
-  border-top: 50px solid #f00;
-  border-top: 3.125rem solid #f00;
-  border-right: 50px solid #0ff;
-  border-right: 3.125rem solid #0ff;
+  border: 25px solid #f00;
+  border: 1.5625rem solid #f00;
+  border-radius: 2.8125rem;
 }
+.card__inner:after {
+  content: "NEW!";
+  position: absolute;
+  top: 18px;
+  top: 1.125rem;
+  left: 11px;
+  left: 0.6875rem;
+  font-size: 10px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #fff;
+}
+@media screen and (min-width: 768px) {
+  .card__inner:after {
+    top: 0.925rem;
+    left: 0.2875rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .card__inner:after {
+    top: 1.125rem;
+    left: 0.6875rem;
+  }
+}
+
 .card__wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -211,5 +238,8 @@ select::-ms-expand {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+.card {
+  text-align: center;
 }
 /*# sourceMappingURL=styles.css.map */

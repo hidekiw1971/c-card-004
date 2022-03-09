@@ -3,27 +3,57 @@
 // tb size  768px -> md
 // pc size 1440px -> xl
 
+// 使い方
+// レスポンシブ対応時のカードの横幅サイズ設定は、「card__inner」で設定して下さい。
+
 .card__inner {
+  position: relative; // バッジを付ける時に必要。バッジを付けなければ削除して問題ありません。
   display: inline-block;
   max-width: rem(335);
   width: 100%;
+  padding: rem(15);
   @include mq(md) {
   }
   @include mq(xl) {
   }
 }
 
+// 擬似要素を使ってバッチ（new）の円の部分を表現してます。
+// バッジが不要な場合は以降のcss「.card__inner:before」を削除して使って下さい。
 .card__inner:before {
   content: "";
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 0;
-  height: 0;
-  border-top: rem(50) solid #f00;
-  border-right: rem(50) solid #0ff;
+  width: 0; // 円を表現する為にwidth: 0;を指定。円を大きくしたい場合はここで調整する。
+  height: 0; // 円を表現する為にheight: 0;を指定。円を大きくしたい場合はここで調整する。
+  // border-top: rem(50) solid #f00;
+  // border-right: rem(50) solid #f00;
+  border: rem(25) solid #f00;
+  border-radius: rem(45);
   @include mq(md) {
   }
   @include mq(xl) {
+  }
+}
+
+// 擬似要素を使ってバッチ（new）の文字の部分を表現してます。
+// バッジが不要な場合は以降のcss「.card__inner:after」を削除して使って下さい。
+.card__inner:after {
+  content: "NEW!";
+  position: absolute;
+  top: rem(18);
+  left: rem(11);
+  font-size: rem(10);
+  font-weight: $bold;
+  color: #fff;
+
+  @include mq(md) {
+    top: rem(14.8);
+    left: rem(4.6);
+  }
+  @include mq(xl) {
+    top: rem(18);
+    left: rem(11);
   }
 }
